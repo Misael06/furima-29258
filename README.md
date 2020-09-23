@@ -2,14 +2,16 @@
 
 ## users テーブル
 
-| Column    | Type   | Options     |
-| --------  | ------ | ----------- |
-| nickname  | string | null: false |
-| lastname  | string | null: false |
-| firstname | string | null: false |
-| email     | string | null: false |
-| password  | string | null: false |
-| birthday  | date   | null: false |
+| Column      | Type   | Options     |
+| --------    | ------ | ----------- |
+| nickname    | string | null: false |
+| lastname    | string | null: false |
+| firstname   | string | null: false |
+| lastname.jp | string | null: false |
+| firstname.jp| string | null: false |
+| email       | string | null: false |
+| password    | string | null: false |
+| birthday    | date   | null: false |
 
 ### Association
 
@@ -51,12 +53,13 @@
 
 | Column       | Type       | Options     |
 | ------------ | ---------- | ------------|
-| postalcode   | references | null: false |
-| prefecture   | references | null: false |
-| municipality | references | null: false |
-| homeadress   | references | null: false |
-| building     | references | null: false |
-| phonenumber  | references | null: false |
+| postalcode   | string     | null: false |
+| prefecture   | string     | null: false |
+| municipality | string     | null: false |
+| homeadress   | string     | null: false |
+| building     | string     | null: false |
+| phonenumber  | string     | null: false |
+| buyer        | references | null: false, foreign_key: true |
 
 ### Association
 
