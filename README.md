@@ -7,8 +7,8 @@
 | nickname    | string | null: false |
 | lastname    | string | null: false |
 | firstname   | string | null: false |
-| lastname.jp | string | null: false |
-| firstname.jp| string | null: false |
+| lastname_jp | string | null: false |
+| firstname_jp| string | null: false |
 | email       | string | null: false |
 | password    | string | null: false |
 | birthday    | date   | null: false |
@@ -16,13 +16,14 @@
 ### Association
 
 - has_many :items
-- has_one :buyer
+- has_many :buyers
 
 ## items テーブル
 
 | Column        | Type       | Options     |
 | ------------- | ---------- | ----------- |
 | name          | string     | null: false |
+| explanatory   | text       | null: false |
 | price         | integer    | null: false |
 | category      | integer    | null: false |
 | status        | integer    | null: false |
@@ -54,10 +55,10 @@
 | Column       | Type       | Options     |
 | ------------ | ---------- | ------------|
 | postalcode   | string     | null: false |
-| prefecture   | string     | null: false |
+| prefecture   | integer    | null: false |
 | municipality | string     | null: false |
 | homeadress   | string     | null: false |
-| building     | string     | null: false |
+| building     | string     ||
 | phonenumber  | string     | null: false |
 | buyer        | references | null: false, foreign_key: true |
 
