@@ -2,25 +2,26 @@
 
 ## users テーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| nickname | string | null: false |
-| name     | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
-| birthday | string | null: false |
+| Column    | Type   | Options     |
+| --------  | ------ | ----------- |
+| nickname  | string | null: false |
+| lastname  | string | null: false |
+| firstname | string | null: false |
+| email     | string | null: false |
+| password  | string | null: false |
+| birthday  | date   | null: false |
 
 ### Association
 
 - has_many :items
+- has_one :buyer
 
 ## items テーブル
 
 | Column        | Type       | Options     |
 | ------------- | ---------- | ----------- |
 | name          | string     | null: false |
-| user_name     | string     | null: false |
-| price         | string     | null: false |
+| price         | integer    | null: false |
 | category      | integer    | null: false |
 | status        | integer    | null: false |
 | fee           | integer    | null: false |
@@ -33,7 +34,7 @@
 - has_one :buyer
 - belongs_to :user
 
-## buyer テーブル
+## buyers テーブル
 
 | Column   | Type       | Options                        |
 | ------   | ---------- | ------------------------------ |
@@ -42,14 +43,20 @@
 
 ### Association
 
+- has_one :send_place
 - belongs_to :item
 - belongs_to :user
 
-## send_place テーブル
+## send_places テーブル
 
-| Column    | Type       | Options                        |
-| ------    | ---------- | ------------------------------ |
-| sendplace | references | null: false, foreign_key: true |
+| Column       | Type       | Options     |
+| ------------ | ---------- | ------------|
+| postalcode   | references | null: false |
+| prefecture   | references | null: false |
+| municipality | references | null: false |
+| homeadress   | references | null: false |
+| building     | references | null: false |
+| phonenumber  | references | null: false |
 
 ### Association
 
