@@ -19,14 +19,14 @@ default: &default
 
 development:
   <<: *default
-  database: furima_”テックマスターのuser_id”_development
+  database: furima-29258_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: furima_”テックマスターのuser_id”_test
+  database: furima-29258_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: furima_”テックマスターのuser_id”_production
-  username: furima_”テックマスターのuser_id”
-  password: <%= ENV['FURIMA_”テックマスターのUSER_ID”_DATABASE_PASSWORD'] %>
+  database: furima-29258_production
+  username: furima-29258
+  password: <%= ENV['FURIMA-29258_DATABASE_PASSWORD'] %>
