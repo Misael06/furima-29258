@@ -1,5 +1,11 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth
+  protect_from_forgery with: :exception
+  before_action :configre_permitted_parameters, if: :devise_controller?
+
+  def configre_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :lastname, :firstname, :lastname_jp, :firstname_jp, :birthday])
+  end
 
   private
 
