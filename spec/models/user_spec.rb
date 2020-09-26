@@ -85,12 +85,12 @@ RSpec.describe User, type: :model do
       it "passwordがローマ字のみだと登録できない" do
         @user.password = 'aaaaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password Password Include both letters and numbers")
+        expect(@user.errors.full_messages).to include("Password Include both letters and numbers")
       end
       it "passwordが数字のみだと登録できない" do
-        @user.password = '000000'
+        @user.password = '0000000'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password Password Include both letters and numbers")
+        expect(@user.errors.full_messages).to include("Password Include both letters and numbers")
       end
       it "passwordが存在してもpassword_confirmationが空では登録できない" do
         @user.password_confirmation = ""

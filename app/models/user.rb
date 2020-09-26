@@ -9,7 +9,7 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname, uniqueness: true
     validates :email, uniqueness: true
-    validates :password, length: { minimum: 6}, confirmation: true, format: { with: VALID_PASSWORD_REGEX, message: "Password Include both letters and numbers"}
+    validates :password, length: { minimum: 6}, confirmation: true, format: { with: VALID_PASSWORD_REGEX, message: "Include both letters and numbers"}
     validates :lastname, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "Full-width characters"}
     validates :firstname, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "Full-width characters"}
     validates :lastname_jp, format: { with: /\A[ァ-ヶー－]+\z/, message: "Full-width katakana characters"}
