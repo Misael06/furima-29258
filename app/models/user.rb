@@ -7,8 +7,7 @@ class User < ApplicationRecord
 
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,}+\z/
   with_options presence: true do
-    validates :nickname, uniqueness: true
-    validates :email, uniqueness: true
+    validates :nickname
     validates :password, length: { minimum: 6}, confirmation: true, format: { with: VALID_PASSWORD_REGEX, message: "Include both letters and numbers"}
     validates :birthday
     with_options format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "Full-width characters"} do
