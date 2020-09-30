@@ -7,9 +7,9 @@ class Item < ApplicationRecord
     validates :name
     validates :explanatory
     validates :price, format: {with: /\A[0-9]+\z/, message: "Half-width number"}, 
-              :numericality => { greater_than_or_equal_to: 300, less_than: 10000000, message:"Out of setting range"} 
+              numericality: { greater_than_or_equal_to: 300, less_than: 10000000, message:"Out of setting range"} 
   end
-  with_options exclusion: { in: %w(---),message: "Select" } do
+  with_options numericality: { other_than: 0, message: "Select" } do
     validates :category
     validates :status
     validates :fee
