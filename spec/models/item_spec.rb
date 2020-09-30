@@ -35,17 +35,17 @@ RSpec.describe Item, type: :model do
       it "値段が半角でないと商品を出品できない" do
         @item.price = '２０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Half-width number")
+        expect(@item.errors.full_messages).to include("Price is not a number")
       end
       it "値段が300円未満だと商品を出品できない" do
         @item.price = '299'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price Out of setting range")
+        expect(@item.errors.full_messages).to include("Price must be greater than 300")
       end
       it "値段が10000000以上だと商品を出品できない" do
         @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price Out of setting range")
+        expect(@item.errors.full_messages).to include("Price must be less than 9999999")
       end
       it "カテゴリーが選択されていないと商品を出品できない" do
         @item.category = 0
