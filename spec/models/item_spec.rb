@@ -32,6 +32,11 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
+      it "値段が半角でないと商品を出品できない" do
+        @item.price = '２０００'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Half-width number")
+      end
       it "値段が300円未満だと商品を出品できない" do
         @item.price = '299'
         @item.valid?
