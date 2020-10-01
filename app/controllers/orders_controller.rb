@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :move_to_new, only: [:index]
+
   def index
     @item=Item.find(params[:item_id])
   end
@@ -11,6 +13,12 @@ class OrdersController < ApplicationController
       return redirect_to root_path
     else
       render 'index'
+    end
+  end
+
+  def move_to_new
+    unless user_signed_in?
+      redirect_to new_user_session_path
     end
   end
  
