@@ -60,7 +60,7 @@
 | homeadress   | string     | null: false |
 | building     | string     ||
 | phonenumber  | string     | null: false |
-| buyer        | references | null: false, foreign_key: true |
+| order        | references | null: false, foreign_key: true |
 
 ### Association
 
