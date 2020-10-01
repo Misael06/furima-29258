@@ -1,22 +1,26 @@
 class ItemsController < ApplicationController
   before_action :move_to_new, except: [:index]
-#商品一覧に再度確認
+
   def index
     @items =Item.all
   end
-#/商品一覧に再度確認
+
   def new
     @item =Item.new
   end
 
   def create
-    @item =Item.new(item_params)
+    @item =Item.create(item_params)
     if @item.valid?
       @item.save
       redirect_to root_path
     else
       render action: :new
     end
+  end
+
+  def show
+    @item =Item.find(params[:id])
   end
 
   def move_to_new
