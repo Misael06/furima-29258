@@ -28,13 +28,13 @@ class ItemsController < ApplicationController
   end
 
   def update
-    item = Item.find(params[:id])
-    item.update(item_params)
-    if item.valid?
-      item.save
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    if @item.valid?
+      @item.save
       redirect_to root_path
     else
-      render action: :new
+      render action: :edit
     end
   end
 
