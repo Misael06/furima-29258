@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   def index
+    @item=Item.find(params[:item_id])
   end
  
   def create
@@ -16,7 +17,7 @@ class OrdersController < ApplicationController
   private
  
   def order_params
-    params.require(:order).permit(:token).merge(user_id: current_user.id)
+    params.require(:order).permit(:token).merge(user_id: current_user.id, item_id: current_item.id)
   end
  
   def pay_item
@@ -27,4 +28,4 @@ class OrdersController < ApplicationController
       currency:'jpy'
     )
   end
- end
+end
