@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :timerequired
   has_one_attached :item_image
   belongs_to :user
+  has_one :order
 
   with_options presence: true do
     validates :item_image
