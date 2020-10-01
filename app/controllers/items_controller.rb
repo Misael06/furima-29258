@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_new, except: [:index, :show]
+  before_action :set_item, only: [:show, :edit, :update]
 
   def index
     @items= Item.all.order(created_at: :desc)
@@ -20,13 +21,33 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item =Item.find(params[:id])
   end
+
+  def edit
+  end
+
+  def update
+    @item.update(item_params)
+    if @item.valid?
+      redirect_to root_path
+    else
+      render action: :edit
+    end
+  end
+
+  #商品削除で確認
+  def destroy
+  end
+  #/商品削除で再度確認
 
   def move_to_new
     unless user_signed_in?
       redirect_to new_user_session_path
     end
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
   private
