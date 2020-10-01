@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
   before_action :move_to_new, except: [:index]
-#商品一覧に再度確認
+
   def index
-    @items =Item.all
+    @items= Item.all.order(created_at: :desc)
   end
-#/商品一覧に再度確認
+
   def new
     @item =Item.new
   end
