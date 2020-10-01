@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_new, except: [:index, :show]
-  before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items= Item.all.order(created_at: :desc)
@@ -35,10 +35,10 @@ class ItemsController < ApplicationController
     end
   end
 
-  #商品削除で確認
   def destroy
+    @item.destroy
+    redirect_to root_path
   end
-  #/商品削除で再度確認
 
   def move_to_new
     unless user_signed_in?
