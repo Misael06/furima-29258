@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :move_to_new, except: [:index, :show]
 
   def index
-    @items =Item.all
+    @items= Item.all.order(created_at: :desc)
   end
 
   def new
@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item =Item.create(item_params)
+    @item =Item.new(item_params)
     if @item.valid?
       @item.save
       redirect_to root_path
@@ -52,6 +52,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:item_image, :name, :explanatory, :price, :category, :status, :fee, :shipmentsource, :timerequired).merge(user_id: current_user.id)
+    params.require(:item).permit(:item_image, :name, :explanatory, :price, :category_id, :status_id, :fee_id, :shipmentsource_id, :timerequired_id).merge(user_id: current_user.id)
   end
 end
