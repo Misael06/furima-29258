@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :move_to_new, except: [:index]
 
   def index
-    Item.all.order(created_at: :desc)
+    @items= Item.all.order(created_at: :desc)
   end
 
   def new
@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item =Item.new(item_params)
+    @item =Item.create(item_params)
     if @item.valid?
       @item.save
       redirect_to root_path
