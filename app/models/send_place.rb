@@ -6,7 +6,6 @@ class SendPlace < ApplicationRecord
     validates :postalcode, format: { with: /\A\d{3}[-]\d{4}\z/}
     validates :municipality
     validates :homeadress
-    validates :building
     validates :phonenumber, format: { with: /\A\d{,11}\z/}
   end
 
