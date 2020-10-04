@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
   private
  
   def order_send_place_params
-    params.permit(:token, :postalcode, :prefecture_id, :municipality, :homeadress, :building, :phonenumber).merge(user_id: current_user.id, : current_item.id)
+    params.require(:order_send_place).permit(:postalcode, :prefecture_id, :municipality, :homeadress, :building, :phonenumber).merge(token: params[:token], item_id: params[:item_id], user_id: current_user.id)
   end
  
   def pay_item

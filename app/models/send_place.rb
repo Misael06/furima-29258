@@ -1,5 +1,4 @@
 class SendPlace < ApplicationRecord
-  belongs_to_active_hash :prefecture
   belongs_to :order
 
   with_options presence: true do

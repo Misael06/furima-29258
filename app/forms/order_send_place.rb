@@ -1,7 +1,7 @@
 class OrderSendPlace
 
   include ActiveModel::Model
-  attr_accessor :token, :postalcode, :prefecture_id, :municipality, :homeadress, :building, :phonenumber
+  attr_accessor :token, :postalcode, :prefecture_id, :municipality, :homeadress, :building, :phonenumber, :item_id, :user_id
 
   with_options presence: true do
     validates :token, presence: true
@@ -14,7 +14,7 @@ class OrderSendPlace
   validates :prefecture_id, numericality: { other_than: 0, message: "Select" }
 
   def save
-    order = Orer.create(token: token)
+    order = Order.create(token: token, item_id: item_id, user_id: user_id)
     SendPlace.create(postalcode: postalcode, prefecture_id: prefecture_id, municipality: municipality, homeadress: homeadress, building: building, phonenumber: phonenumber, order_id: order.id)
   end
 end
