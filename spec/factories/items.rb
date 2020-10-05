@@ -3,11 +3,11 @@ FactoryBot.define do
     name {Faker::Name.initials}
     explanatory {Faker::Lorem.sentence}
     price {400}
-    category {1}
-    status {3}
-    fee {2}
-    shipmentsource {20}
-    timerequired {3}
+    category_id {1}
+    status_id {3}
+    fee_id {2}
+    shipmentsource_id {20}
+    timerequired_id {3}
     association :user 
 
     after(:build) do |item|
