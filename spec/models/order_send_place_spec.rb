@@ -44,13 +44,23 @@ RSpec.describe OrderSendPlace, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Homeadress can't be blank")
       end
-      it "番地が入力されていないと購入できない" do
+      it "電話番号が入力されていないと購入できない" do
         @order.phonenumber = ''
         @order.valid?
         expect(@order.errors.full_messages).to include("Phonenumber can't be blank")
       end
       it "電話番号が12桁以上だと購入できない" do
         @order.phonenumber = 123456789101
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Phonenumber is invalid")
+      end
+      it "電話番号が数値でない時は購入できない" do
+        @order.phonenumber = 'ゼロハチゼロ'
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Phonenumber is invalid")
+      end
+      it "電話番号にハイフン(-)が入力されていると購入できない" do
+        @order.phonenumber = 111-111-111
         @order.valid?
         expect(@order.errors.full_messages).to include("Phonenumber is invalid")
       end
