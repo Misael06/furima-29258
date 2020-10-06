@@ -48,27 +48,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price must be less than 9999999")
       end
       it "カテゴリーが選択されていないと商品を出品できない" do
-        @item.category = 0
+        @item.category_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Category Select")
       end
       it "商品状態が選択されていないと商品を出品できない" do
-        @item.status = 0
+        @item.status_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Status Select")
       end
       it "手数料が選択されていないと商品を出品できない" do
-        @item.fee = 0
+        @item.fee_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Fee Select")
       end
       it "送付先が選択されていないと商品を出品できない" do
-        @item.shipmentsource = 0
+        @item.shipmentsource_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipmentsource Select")
       end
       it "必要日数が選択されていないと商品を出品できない" do
-        @item.timerequired = 0
+        @item.timerequired_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Timerequired Select")
       end
