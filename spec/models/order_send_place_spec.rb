@@ -29,6 +29,11 @@ RSpec.describe OrderSendPlace, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Postalcode is invalid")
       end
+      it "郵便番号がはい含めて9字以上だとと購入できない" do
+        @order.postalcode = 123-45678
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Postalcode is invalid")
+      end
       it "都道府県が選択されていないと購入できない" do
         @order.prefecture_id = 0
         @order.valid?
