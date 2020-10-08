@@ -1,3 +1,5 @@
+<%= render "shared/header" %>
+
 <%= form_with  url: cards_path, id: 'registre-form', class: 'card-form',local: true do |f| %>
   <div class="Cardpage">
     <h1>カード登録</h1>
@@ -22,3 +24,5 @@
   </div>
   <%= f.submit "登録する" , class:"button" %>
 <% end %>
+
+<%= render "shared/footer" %>
