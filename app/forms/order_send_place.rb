@@ -11,7 +11,7 @@ class OrderSendPlace
     validates :phonenumber, format: { with: /\A\d{10,11}\z/}
   end
 
-  validates :prefecture_id, numericality: { other_than: 0, message: "Select" }
+  validates :prefecture_id, numericality: { other_than: 0, message: :need_select }
 
   def save
     order = Order.create(token: token, item_id: item_id, user_id: user_id)
