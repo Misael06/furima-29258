@@ -15,62 +15,62 @@ RSpec.describe Item, type: :model do
       it "画像が無いと商品を出品できない" do
         @item.item_image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item image can't be blank")
+        expect(@item.errors.full_messages).to include("出品画像を入力してください")
       end     
       it "名前が無いと商品を出品できない" do
         @item.name = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Name can't be blank")
+        expect(@item.errors.full_messages).to include("商品名を入力してください")
       end
       it "説明文が無いと商品を出品できない" do
         @item.explanatory = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Explanatory can't be blank")
+        expect(@item.errors.full_messages).to include("商品の説明を入力してください")
       end
       it "値段が入力されていないと商品を出品できない" do
         @item.price = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price can't be blank")
+        expect(@item.errors.full_messages).to include("販売価格を入力してください")
       end
       it "値段が半角でないと商品を出品できない" do
-        @item.price = '２０００'
+        @item.price = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include("販売価格は半角数字で入力してください。")
       end
       it "値段が300円未満だと商品を出品できない" do
         @item.price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be greater than 300")
+        expect(@item.errors.full_messages).to include("販売価格は300より大きい値にしてください")
       end
       it "値段が10000000以上だと商品を出品できない" do
         @item.price = 10000000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be less than 9999999")
+        expect(@item.errors.full_messages).to include("販売価格は9999999より小さい値にしてください")
       end
       it "カテゴリーが選択されていないと商品を出品できない" do
         @item.category_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category Select")
+        expect(@item.errors.full_messages).to include("カテゴリーを選択してください")
       end
       it "商品状態が選択されていないと商品を出品できない" do
         @item.status_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status Select")
+        expect(@item.errors.full_messages).to include("商品の状態を選択してください")
       end
       it "手数料が選択されていないと商品を出品できない" do
         @item.fee_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Fee Select")
+        expect(@item.errors.full_messages).to include("配送料の負担を選択してください")
       end
       it "送付先が選択されていないと商品を出品できない" do
         @item.shipmentsource_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipmentsource Select")
+        expect(@item.errors.full_messages).to include("発送先地域を選択してください")
       end
       it "必要日数が選択されていないと商品を出品できない" do
         @item.timerequired_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Timerequired Select")
+        expect(@item.errors.full_messages).to include("発送までの日数を選択してください")
       end
     end
   end
