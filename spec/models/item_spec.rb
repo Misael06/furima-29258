@@ -50,27 +50,27 @@ RSpec.describe Item, type: :model do
       it "カテゴリーが選択されていないと商品を出品できない" do
         @item.category_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("カテゴリーを選択してください。")
+        expect(@item.errors.full_messages).to include("カテゴリーを選択してください")
       end
       it "商品状態が選択されていないと商品を出品できない" do
         @item.status_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品の状態を選択してください。")
+        expect(@item.errors.full_messages).to include("商品の状態を選択してください")
       end
       it "手数料が選択されていないと商品を出品できない" do
         @item.fee_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("配送料の負担を選択してください。")
+        expect(@item.errors.full_messages).to include("配送料の負担を選択してください")
       end
       it "送付先が選択されていないと商品を出品できない" do
         @item.shipmentsource_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("発送先地域を選択してください。")
+        expect(@item.errors.full_messages).to include("発送先地域を選択してください")
       end
       it "必要日数が選択されていないと商品を出品できない" do
         @item.timerequired_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("発送までの日数を選択してください。")
+        expect(@item.errors.full_messages).to include("発送までの日数を選択してください")
       end
     end
   end

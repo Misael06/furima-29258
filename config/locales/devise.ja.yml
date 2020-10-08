@@ -141,7 +141,7 @@ ja:
         one: エラーが発生したため %{resource} は保存されませんでした。
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
       Halfwidth_number: は半角数字で入力してください。
-      need_select: を選択してください。
+      need_select: を選択してください
       Include_both: にはローマ字と数字が必須です。
       Full_width: は全角で入力してください。
       Full_width_jp: は全角カタカナで入力してください。

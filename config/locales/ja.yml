@@ -18,3 +18,13 @@ ja:
         fee_id: 配送料の負担
         shipmentsource_id: 発送先地域
         timerequired_id: 発送までの日数
+
+  activemodel:
+    attributes:
+      order_send_place:
+        token: 正しいクレジットカード情報
+        postalcode: 郵便番号
+        prefecture_id: 都道府県
+        municipality: 市区町村
+        homeadress: 番地
+        phonenumber: 電話番号
